@@ -10,7 +10,7 @@
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
     [CreateAssetMenu(menuName = "ECS/Globals/Events/Network/Event")]
-    public abstract class GlobalNetworkEvent : GlobalEvent, IOnEventCallback {
+    public class GlobalNetworkEvent : GlobalEvent, IOnEventCallback {
         public int eventCode;
 
         public SerializableRaiseEventOptions raiseEventOptions;
@@ -28,6 +28,9 @@
             base.Dispose();
             PhotonNetwork.RemoveCallbackTarget(this);
         }
+
+        public override void Publish() => this.Publish(-1);
+        public override void NextFrame() => this.NextFrame(-1);
 
         public override void Publish(int data) {
             this.CheckIsInitialized();
