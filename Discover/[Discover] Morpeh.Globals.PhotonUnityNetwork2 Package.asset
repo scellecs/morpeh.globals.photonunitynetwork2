@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0dca1f0dde868a4aa93821382b07f95, type: 3}
+  m_Name: '[Discover] Morpeh.Globals.PhotonUnityNetwork2 Package'
+  m_EditorClassIdentifier: 
+  Name: Morpeh.Globals.PhotonUnityNetwork2
+  Category: Packages
+  DefaultSelected: 0
+  image: {fileID: 0}
+  Description: Photon Unity Network 2 Integration for Global Events and Variables.
+  Priority: 0
+  Sections:
+  - SectionName: Git HTTPS Packages
+    image: {fileID: 0}
+    SectionContent: By these actions you can switch branch or do force update by
+      HTTPS.
+    Actions:
+    - Description: Master Branch
+      Target: {fileID: 11400000, guid: 09df5948d99d3b249ba187b69028688b, type: 2}
+    - Description: Develop Branch
+      Target: {fileID: 11400000, guid: 961d5cfba3e3f744d8d49d3511773ad9, type: 2}
+  - SectionName: Git SSH Packages
+    image: {fileID: 0}
+    SectionContent: By these actions you can switch branch or do force update by
+      SSH.
+    Actions:
+    - Description: Master Branch
+      Target: {fileID: 11400000, guid: bff1401bf7d6c424ca6465732cd56288, type: 2}
+    - Description: Develop Branch
+      Target: {fileID: 11400000, guid: 11e7deb253a52934f838cfd3b5f41d1d, type: 2}
