@@ -37,29 +37,29 @@
 
             var serializedData = this.Serialize(data);
 
-            var customData = new SerializableCustomData {
-                eventCode = this.eventCode,
-                data      = serializedData
+            var customData = new object[] {
+                this.eventCode,
+                serializedData
             };
 
-            PhotonNetwork.RaiseEvent(200, customData, this.raiseEventOptions,
+            PhotonNetwork.RaiseEvent(199, customData, this.raiseEventOptions,
                 this.sendOptions == SerializableSendOptions.SendReliable ? SendOptions.SendReliable : SendOptions.SendUnreliable);
         }
 
         public override void NextFrame(int data) => this.Publish(data);
 
         public void OnEvent(EventData photonEvent) {
-            if (photonEvent.Code != 200) {
+            if (photonEvent.Code != 199) {
+                return;
+            }
+            var customData = (object[]) photonEvent.CustomData;
+            var code       = (int) customData[0];
+
+            if (code != this.eventCode) {
                 return;
             }
 
-            var customData = (SerializableCustomData) photonEvent.CustomData;
-
-            if (customData.eventCode != this.eventCode) {
-                return;
-            }
-
-            base.NextFrame(this.Deserialize(customData.data));
+            base.NextFrame(this.Deserialize((string) customData[1]));
         }
     }
 
