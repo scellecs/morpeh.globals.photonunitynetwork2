@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: '[Action] Morpeh.Globals.PhotonUnityNetwork2 Package Develop SSH Description'
   m_EditorClassIdentifier: 
   packageName: com.xcrew.morpeh.globals.pun2
-  packageURL: ssh://git@github.com:X-Crew/Morpeh.Globals.PhotonUnityNetwork2.git#develop
+  packageURL: ssh://git@github.com/X-Crew/Morpeh.Globals.PhotonUnityNetwork2.git#develop
