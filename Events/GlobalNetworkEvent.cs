@@ -1,4 +1,5 @@
 ﻿namespace Morpeh.Globals {
+    using System.Collections.Generic;
     using ExitGames.Client.Photon;
     using Photon.Pun;
     using Photon.Realtime;
@@ -44,6 +45,11 @@
 
             PhotonNetwork.RaiseEvent(199, customData, this.raiseEventOptions,
                 this.sendOptions == SerializableSendOptions.SendReliable ? SendOptions.SendReliable : SendOptions.SendUnreliable);
+
+            //Photon don't send event on client itself, some workaround
+            if (this.raiseEventOptions.Receivers == ReceiverGroup.All) {
+                base.NextFrame(data);
+            }
         }
 
         public override void NextFrame(int data) => this.Publish(data);
